@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Row, Col, Form, Input, Button } from 'antd';
+import { Row, Col, Form, Input, Button, Space } from 'antd';
 import AuthFormContainer from '../components/layout/AuthFormContainer';
 import Container from '../components/layout/Container';
 import Logo from '../components/layout/Logo';
@@ -39,6 +39,10 @@ const SignIn = () => {
               <StyledButton loading={isLoading} type="primary" htmlType="submit">
                 Entrar
               </StyledButton>
+
+              <StyledSpace direction='vertical' align='center'>
+                Não possui uma conta?<Button type="link">Cadastre-se</Button>
+              </StyledSpace>
             </StyledForm>
           </AuthFormContainer>
         </Col>
@@ -59,6 +63,10 @@ const StyledButton = styled(Button)`
   background-color: #284B63;
   border: 1px solid #284B63;
   border-radius: 3px;
+`;
+
+const StyledSpace = styled(Space)`
+  margin-top: 20px;
 `;
 
 export default SignIn;
