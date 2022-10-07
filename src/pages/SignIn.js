@@ -4,8 +4,11 @@ import { Row, Col, Form, Input, Button, Space } from 'antd';
 import AuthFormContainer from '../components/layout/AuthFormContainer';
 import Container from '../components/layout/Container';
 import Logo from '../components/layout/Logo';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const [form] = Form.useForm();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +20,7 @@ const SignIn = () => {
   }
 
   return (
-    <Container>
+    <Container justify={'center'}>
       <Row justify='center'>
         <Col lg={6} span={20}>
           <AuthFormContainer>
@@ -41,7 +44,7 @@ const SignIn = () => {
               </StyledButton>
 
               <StyledSpace direction='vertical' align='center'>
-                Não possui uma conta?<Button type="link">Cadastre-se</Button>
+                Não possui uma conta?<Button onClick={() => navigate('/sign-up')} type="link">Cadastre-se</Button>
               </StyledSpace>
             </StyledForm>
           </AuthFormContainer>
