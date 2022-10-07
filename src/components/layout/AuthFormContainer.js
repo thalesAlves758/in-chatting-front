@@ -4,6 +4,7 @@ const AuthFormContainer = styled.div`
   border-radius: 3px;
   padding: 15px;
   background-color: #e3e6e6;
+  margin: 28px 0;
 
   display: flex;
   flex-direction: column;
