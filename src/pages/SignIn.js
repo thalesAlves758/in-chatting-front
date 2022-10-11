@@ -1,15 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form, Input, message, Row, Space } from 'antd';
-import styled from 'styled-components';
+import { Button, Form, Input, message, Space } from 'antd';
 import Container from '../components/layout/Container';
 import AppInfo from '../components/AppInfo';
-import AuthContainerCol from '../components/layout/AuthContainerCol';
+import { AuthContainerCol, LogoContainer, StyledButton, StyledForm } from '../components/layout/AuthForm';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/layout/Logo';
 import axios from 'axios';
 import UserContext from '../contexts/UserContext';
+import Display from '../components/layout/Display';
 
 const SignInForm = () => {
+  const navigate = useNavigate();
+
   const [form] = Form.useForm();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +40,8 @@ const SignInForm = () => {
 
       setUser(user);
       setIsLoading(false);
+
+      navigate('/');
     } catch (error) {
       let errorMessage = 'Não foi possível concluir a operação';
 
@@ -93,33 +97,5 @@ const SignIn = () => {
     </Container>
   );
 }
-
-const Display = styled(Row)`
-  height: 100vh;
-`;
-
-const StyledForm = styled(Form)`
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledButton = styled(Button)`
-  width: calc(100% - 2 * 40px);
-  margin: 0 auto;
-  background-color: #284B63;
-  border: 1px solid #284B63;
-  border-radius: 5px;
-`;
-
-const LogoContainer = styled.div`
-  @media (min-width: 990px) {
-    display: none;
-  }
-
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-`;
 
 export default SignIn;
